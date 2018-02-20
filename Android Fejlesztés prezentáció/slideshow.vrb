@@ -1,0 +1,20 @@
+\frametitle{Discussion}
+\begin{minipage}{0.39\textwidth}
+		\begin{itemize}
+			\item Overall 88\% accuracy
+			\item Human body
+			\item WiFi interference
+			\item Increased Beacon density
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.59\textwidth}
+		\begin{itemize}
+			\item Future plans
+			\begin{itemize}
+				\item Navigation
+				\item Orientation consideration
+				\item Dead Reckoning technique
+				\item ILONA integration
+			\end{itemize}
+		\end{itemize}
+	\end{minipage}
