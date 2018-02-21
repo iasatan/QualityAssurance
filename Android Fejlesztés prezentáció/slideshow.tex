@@ -119,168 +119,83 @@
 			\item Szoftver tesztelés	
 		\end{itemize}
 	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=1 \linewidth]{figures/android.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Google LCC}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+				\item 19 éve alapították
+				\item Fő bevételforrása: reklámok
+				\item kb 73000 alkalmazott
+				\item 767 Milliárd dolláros piaci érték
+				\item Magyarország GDP-je: 120 Milliárd dollár 
+		\end{itemize}
+	\end{minipage}
 \begin{minipage}{0.49\textwidth}
-\includegraphics[width=1 \linewidth]{figures/android.png}
+	\begin{itemize}
+		\item Ismertebb munkásságai:
+		\begin{itemize}
+			\item Google kereső
+			\item Gmail
+			\item Chrome
+			\item Fiber
+			\item Maps
+			\item Docs, Drive
+			\item Chromebook
+			\item Android
+		\end{itemize}
+	\end{itemize}
 \end{minipage}
 \end{frame}
-\begin{frame}[fragile]{Google - Android}
+\begin{frame}[fragile]{Google}
+	\begin{minipage}{0.8\textwidth}
+		\includegraphics[width=1 \linewidth]{figures/share.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Android}
 	\begin{minipage}{0.49\textwidth}
 		\begin{itemize}
-			\item
+			\item 2008 szeptember
+			\item Linux alapú mobil operációs rendszer
+			\item ARM, x86, x64
+			\item Telefon, Tablet, Okosóra, TV, Autó
 		\end{itemize}
 	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\begin{figure}
-			\includegraphics[width=1\linewidth]{figures/beacon.png}
-		\end{figure}
+	\begin{minipage}{.49\textwidth}
+		\includegraphics[width=.8\linewidth]{figures/android10.jpeg}
 	\end{minipage}
 \end{frame}
-\begin{frame}[fragile]{Test Environment}
+\begin{frame}[fragile]{Android}
 	\begin{minipage}{0.49\textwidth}
 		\begin{itemize}
-			\item Beacons
-			\begin{itemize}
-				\item Placed 12m apart
-				\item In the ceiling for best coverage
-			\end{itemize}
-			\item Rooms
-			\begin{itemize}
-				\item Position
-				\item Residents
-			\end{itemize}
+			\item 8. verzió (2017 December)
+			\item 432 millió okostelefonból 352 millió androidos (87\%)
+			\item 3,638,448 alkalmazás (2018 febr 20)
+			\item Átlagosan havonta 60,000 új app
 		\end{itemize}
 	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\begin{figure}
-			\includegraphics[width=0.7\linewidth]{figures/envir.png}
-		\end{figure}
+	\begin{minipage}{.49\textwidth}
+		\includegraphics[width=.8\linewidth]{figures/android80.jpg}
 	\end{minipage}
 \end{frame}
-\section{Implementation}
-
-\begin{frame}[fragile]{Application}
+\begin{frame}[fragile]{Android fejlesztő}
 	\begin{minipage}{0.49\textwidth}
 		\begin{itemize}
-			\item Developed for Android
-			\item Implemented in Java
-			\item Utilizes Bluetooth Low Energy technology
+			\item 80000\$ átlagfizetés
+			\item 1,000,000 reklámos alkalmazás
+			\item 432 millió okostelefonból 352 millió androidos (87\%)
+			\item 3,638,448 alkalmazás (2018 febr 20)
+			\item Átlagosan havonta 60,000 új app
 		\end{itemize}
 	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\begin{figure}
-			\includegraphics[width=1\linewidth]{figures/app2.png}
-		\end{figure}
+	\begin{minipage}{.49\textwidth}
+		\includegraphics[width=.8\linewidth]{figures/android80.jpg}
 	\end{minipage}
 \end{frame}
-\section{Method}
-\begin{frame}[fragile]{Algorithm}
-\begin{minipage}{0.49\textwidth}
-\begin{itemize}
-	\item Get RSSI
-	\item Filter RSSI
-	\item Calculate distance 
-	 $d=exp(\dfrac{RSSI - A_{0}}{-10n})$
-	\item Calculate distance between positions
-	\item Determine User Position
-	\item Find Closest room
-\end{itemize}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
-\begin{figure}
-	\includegraphics[width=1\linewidth]{figures/pitagorasz.png}
-\end{figure}
-\end{minipage}
-\end{frame}
-
-\section{Cases}
-\begin{frame}[fragile]{Case 1}
-	\begin{minipage}{0.49\textwidth}
-		\begin{itemize}
-			\item User Between Beacons
-			\item Relies on both
-			\item Proportional Division
-			\item Device independent solution
-		\end{itemize}
-	\end{minipage}
-	\begin{minipage}{0.49\textwidth}
-		\begin{figure}
-			\includegraphics[width=1\linewidth]{figures/test222.png}
-		\end{figure}
-	\end{minipage}
-\end{frame}
-\begin{frame}[fragile]{Case 2}
-\begin{minipage}{0.49\textwidth}
-\begin{itemize}
-	\item User isn't between beacons
-	\item Relies on the closest Beacon
-	\item Places the user on the beaconless side
-	\item Different results in different devices
-\end{itemize}
-\end{minipage}
-\begin{minipage}{0.49\textwidth}
-\begin{figure}
-	\includegraphics[width=1\linewidth]{figures/test111.png}
-\end{figure}
-\end{minipage}
-\end{frame}
-
-
-
-\section{Result}
-
-
-
-\begin{frame}[fragile]{Test Results}
-
-	\begin{minipage}{1\textwidth}
-		\begin{table}[h]
-			\centering
-%			\caption{Test Results}\label{tab:testResutls}
-			\begin{tabular}{|c|c|c|c|}
-				\hline
-				Reference point & Position & Correct & Not correct\\ 
-				\hline 
-				(4,7) outside beacons & 107 & 7 & 0 \\ \hline
-				(6,7) under beacon 1 & 107 & 7 & 0 \\ \hline
-				(10,7) front of fire hose & 108 & 6 & 1 \\ \hline
-				(14,7) front of room 108 & 108 & 7 & 0 \\ \hline
-				(16,7) between room 108 and 123 & 108 & 3 & 4 \\ \hline
-				(18,7) under beacon 2 & 123 & 7 & 0\\ \hline
-				
-			\end{tabular}
-		\end{table}
-	\end{minipage}
-%	\begin{minipage}{0.42\textheight}
-%		\includegraphics[width=1\linewidth]{figures/measuresss.png}
-%	\end{minipage}
-\end{frame}
-
-\begin{frame}[fragile]{Discussion}
-	\begin{minipage}{0.39\textwidth}
-		\begin{itemize}
-			\item Overall 88\% accuracy
-			\item Human body
-			\item WiFi interference
-			\item Increased Beacon density
-		\end{itemize}
-	\end{minipage}
-	\begin{minipage}{0.59\textwidth}
-		\begin{itemize}
-			\item Future plans
-			\begin{itemize}
-				\item Navigation
-				\item Orientation consideration
-				\item Dead Reckoning technique 
-				\item ILONA integration
-			\end{itemize}
-		\end{itemize}
-	\end{minipage}
-\end{frame}
-
-
-
-
 \section{}
+
 \begin{frame}
 \centering
 \LARGE Thank you for your attention!

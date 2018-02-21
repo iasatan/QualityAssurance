@@ -1,20 +1,12 @@
-\frametitle{Discussion}
-\begin{minipage}{0.39\textwidth}
+\frametitle{Android fejlesztő}
+\begin{minipage}{0.49\textwidth}
 		\begin{itemize}
-			\item Overall 88\% accuracy
-			\item Human body
-			\item WiFi interference
-			\item Increased Beacon density
+			\item 80000 \$ átlagfizetés
+			\item 432 millió okostelefonból 352 millió androidos (87\%)
+			\item 3,638,448 alkalmazás (2018 febr 20)
+			\item Átlagosan havonta 60,000 új app
 		\end{itemize}
 	\end{minipage}
-	\begin{minipage}{0.59\textwidth}
-		\begin{itemize}
-			\item Future plans
-			\begin{itemize}
-				\item Navigation
-				\item Orientation consideration
-				\item Dead Reckoning technique
-				\item ILONA integration
-			\end{itemize}
-		\end{itemize}
+	\begin{minipage}{.49\textwidth}
+		\includegraphics[width=.8\linewidth]{figures/android80.jpg}
 	\end{minipage}

@@ -1,5 +1,1 @@
 \select@language {magyar} \beamer@sectionintoc {1}{Bevezet\IeC {\H o}}{2}{0}{1}
-\select@language {magyar} \beamer@sectionintoc {2}{Implementation}{5}{0}{2}
-\select@language {magyar} \beamer@sectionintoc {3}{Method}{6}{0}{3}
-\select@language {magyar} \beamer@sectionintoc {4}{Cases}{7}{0}{4}
-\select@language {magyar} \beamer@sectionintoc {5}{Result}{9}{0}{5}
