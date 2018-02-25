@@ -41,31 +41,25 @@ public class Coordinate {
 	public boolean insidePolygon(Collection<Coordinate> polygon) {
 		double angle = 0.0;
 		for (Coordinate coordinate : polygon) {
-			angle += Math.atan2(y - coordinate.y, x - coordinate.x) * 180 / Math.PI;
+			double tempAngle;
+			if(coordinate.y<y && coordinate.x < x){
+				tempAngle =Math.abs(Math.toDegrees(Math.atan2(y - coordinate.y, x - coordinate.x)));
+				
+			}
+			else
+				tempAngle =Math.abs(Math.toDegrees(Math.atan2(coordinate.y - y, coordinate.x - x)));
+			//double tempAngle =Math.toDegrees(Math.atan2(y - coordinate.y, x - coordinate.x));
+			
+			/*if(tempAngle<0)
+				tempAngle+=180;*/
+			System.out.println(tempAngle);
+			angle += tempAngle;
+			//angle += Math.atan2(y - coordinate.y, x - coordinate.x) * 180 / Math.PI;
 		}
 		System.out.println(angle);
 		if (angle <= 361 && angle >= 359)
 			return true;
 		return false;
-	}
-
-	public boolean contains(List<Coordinate> polygon) {
-		int crossings = 0;
-		for (int i = 0; i < polygon.size(); i++) {
-			int j = i + 1;
-			boolean cond1 = (polygon.get(i).y <= y) && (y < polygon.get(j).y);
-			boolean cond2 = (polygon.get(j).y <= y) && (y < polygon.get(i).y);
-			if (cond1 || cond2) {
-				// need to cast to double
-				if (x < (polygon.get(j).x - polygon.get(i).x) * (y - polygon.get(i).y)
-						/ (polygon.get(j).y - polygon.get(i).y) + polygon.get(i).x)
-					crossings++;
-			}
-		}
-		if (crossings % 2 == 1)
-			return true;
-		else
-			return false;
 	}
 
 	@Override

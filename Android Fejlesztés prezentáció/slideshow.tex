@@ -171,8 +171,8 @@
 	\begin{minipage}{0.49\textwidth}
 		\begin{itemize}
 			\item 8. verzió (2017 December)
-			\item 432 millió okostelefonból 352 millió androidos (87\%)
-			\item 3,638,448 alkalmazás (2018 febr 20)
+			\item 432 millió okos telefonból 352 millió androidos (87\%)
+			\item 3,638,448 alkalmazás (2018 febr. 20)
 			\item Átlagosan havonta 60,000 új app
 		\end{itemize}
 	\end{minipage}
@@ -183,22 +183,265 @@
 \begin{frame}[fragile]{Android fejlesztő}
 	\begin{minipage}{0.49\textwidth}
 		\begin{itemize}
-			\item 80000\$ átlagfizetés
+			\item 80000\$ átlagfizetés (70000\$ átlag fejlesztői fizetés)
 			\item 1,000,000 reklámos alkalmazás
-			\item 432 millió okostelefonból 352 millió androidos (87\%)
-			\item 3,638,448 alkalmazás (2018 febr 20)
-			\item Átlagosan havonta 60,000 új app
+			\item 3.5 milliárd \$ reklámkifizetés 2012 óta
 		\end{itemize}
 	\end{minipage}
 	\begin{minipage}{.49\textwidth}
-		\includegraphics[width=.8\linewidth]{figures/android80.jpg}
+		\includegraphics[width=.8\linewidth]{figures/androidad.jpeg}
 	\end{minipage}
 \end{frame}
-\section{}
+\section{Fejlesztési nyelvek}
+\begin{frame}[fragile]{Kotlin}
+	\begin{minipage}{0.45\textwidth}
+		\begin{itemize}
+			\item Erősen típusos programozási nyelv
+			\item Orosz fejlesztésű
+			\item IDEA/Android Studio fejlesztői készítették
+			\item Lásd következő előadást
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\includegraphics[width=1\linewidth]{figures/Kotlin-Vs-Java.jpg}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Java}
+	\begin{minipage}{0.9\textwidth}
+		\begin{itemize}
+			\item Objektum orientált nyelv
+			\item Az Android hivatalos nyelve
+			\item Extrák
+			\begin{itemize}
+				\item region kezelés
+				\item Callback metódusok
+			\end{itemize}
+			\item APK-ra csomagolódik
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{1\textheight}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/regionCallback.jpg}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{XML}
+	\begin{minipage}{0.40\textwidth}
+		\begin{itemize}
+			\item AndroidManifest.xml
+			\item GUI elrendezés leírása
+			\item Nyelviesítési fájlok
+			\item Vektorgrafikus képek
+		\end{itemize}
+	\end{minipage}
+\begin{minipage}{.59\textheight}
+	\centering
+	\includegraphics[width=1\linewidth]{figures/layout.png}
+\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{C\# - Mono}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\item Xamarin kiegészítő kell hozzá
+			\item Képes majdnem minden platformra fejleszteni(iOS, Android, Windows, Mac)
+			\item GUI irányelvek ütköznek
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{.69\textheight}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/iosvsandroid.jpg}
+	\end{minipage}
+\end{frame}
+\section{Androidra fejlesztés}
+\begin{frame}[fragile]{Android Studio}
+	\begin{minipage}{0.45\textwidth}
+		\begin{itemize}
+			\item IntelliJ IDEA-ra épül
+			\item Hivatalos Android fejlesztőkörnyezet
+			\item Elérhető minden platformra
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\includegraphics[width=1\linewidth]{figures/ass.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Android Studio}
+	\begin{minipage}{0.9\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/androidStudio.png}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Verzió választás}
+	\begin{minipage}{0.29\textwidth}
+		\begin{itemize}
+			\item Különböző Android verziókhoz különböző API szintek
+			\item pl Android 6.0 = API 23
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.70\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/android-best-practices-2015-30-638.jpg}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Emulátor}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\item Telefon nélküli tesztelés
+			\item Több felbontáson, verzión tesztelés
+			\item lassú, ARM kódot emulál x64-es processzoron
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/avd.jpg}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Gradle}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\item Mavenhez hasonló 
+			\item Függőségekkel foglalkozik
+			\item Itt tárolja az alkalmazás 
+		\end{itemize}
+	\end{minipage}
+\begin{minipage}{0.49\textwidth}
+	\begin{itemize}
+		\includegraphics[width=1\linewidth]{figures/gradle.png}
+	\end{itemize}
+\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{UI irányelvek}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\item Kezdőképernyőről nyílik minden 
+			\item \textbf{"Lista és részletek"} 
+			\item "Körhinta"
+			\item Lapok
+			\item "Fiók"
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/listdetails.jpg}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{UI irányelvek}
+	\begin{minipage}{0.34\textwidth}
+		\begin{itemize}
+			\item Kezdőképernyőről nyílik minden 
+			\item "Lista és részletek"
+			\item \textbf{"Körhinta"}
+			\item Lapok
+			\item "Fiók"
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.65\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/googlestorecarousel.png}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{UI irányelvek}
+	\begin{minipage}{0.34\textwidth}
+		\begin{itemize}
+			\item Kezdőképernyőről nyílik minden 
+			\item "Lista és részletek"
+			\item "Körhinta"
+			\item \textbf{Lapok}
+			\item "Fiók"
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.65\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/viewpagertabs.png}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{UI irányelvek}
+	\begin{minipage}{0.34\textwidth}
+		\begin{itemize}
+			\item Kezdőképernyőről nyílik minden 
+			\item "Lista és részletek"
+			\item "Körhinta"
+			\item Lapok
+			\item \textbf{"Fiók"}
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.65\textwidth}
+		\begin{itemize}
+			\includegraphics[width=1\linewidth]{figures/drawer.png}
+		\end{itemize}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Hello World példaprogram}
+	\begin{minipage}{1\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/hw1.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Hello World példaprogram}
+	\begin{minipage}{1\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/hw2.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Hello World példaprogram}
+	\begin{minipage}{1\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/h3.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Saját példaprogram}
+	\begin{minipage}{0.49\textheight}
+		\begin{itemize}
+			\item Belső helymeghatározás
+			\item Bluetooth szenzorokon alapul
+			\item Tanszéken működik
+			\item Lista és részletek 
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{figures/faszok.png}
+	\end{minipage}
+\end{frame}
 
+
+
+\section{Android tesztelés}
+\begin{frame}[fragile]{JUnit teszt}
+	\begin{minipage}{1\textheight}
+		\begin{itemize}
+			\item Ugyan az mint Javaban
+			\item Metódusok tesztelésére alkalmas
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{1\textwidth}
+		\includegraphics[width=1\linewidth]{figures/junittest.png}
+	\end{minipage}
+\end{frame}
+\begin{frame}[fragile]{Instrumented teszt}
+	\begin{minipage}{0.9\textwidth}
+		\begin{itemize}
+			\item JUnitra épül
+			\item Androidon fut a teszt
+			\item Android specifikus dolgokat lehet vizsgálni
+			\item Különböző Android verziókon, telefonokon és módokon lehet tesztelni 
+		\end{itemize}
+	\end{minipage}
+	\begin{minipage}{1\textwidth}
+	\includegraphics[width=1\linewidth]{figures/ctl-test-results.png}
+\end{minipage}
+\end{frame}
+
+
+\section{}
 \begin{frame}
 \centering
-\LARGE Thank you for your attention!
+\LARGE Köszönöm a figyelmet!
 \end{frame}
 
 \end{document} 
