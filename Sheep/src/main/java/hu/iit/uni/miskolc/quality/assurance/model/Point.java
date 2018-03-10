@@ -1,8 +1,5 @@
 package hu.iit.uni.miskolc.quality.assurance.model;
 
-import java.util.Collection;
-import java.util.List;
-
 public class Point {
 
     private int id;
@@ -38,9 +35,17 @@ public class Point {
     public void setY(int y) {
         this.y = y;
     }
+
+    public double getAngle(Point left, Point right) {
+        double leftAngle = Math.sqrt(Math.pow(x - left.x, 2) + Math.pow(y - left.y, 2));
+        double rightAngle = Math.sqrt(Math.pow(x - right.x, 2) + Math.pow(y - right.y, 2));
+        double angleLeftRigt = Math.sqrt(Math.pow(right.x - left.x, 2) + Math.pow(right.y - left.y, 2));
+        return Math.acos((rightAngle * rightAngle + leftAngle * leftAngle - angleLeftRigt * angleLeftRigt) / (2 * rightAngle * leftAngle));
+    }
+
     @Override
     public String toString() {
-        return "Coordinate [id=" + id + ", x=" + x + ", y=" + y + "]";
+        return x + " " + y;
     }
 
 }

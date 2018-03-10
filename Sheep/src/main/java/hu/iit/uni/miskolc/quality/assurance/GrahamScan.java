@@ -8,18 +8,14 @@ import java.util.*;
 public class GrahamScan {
     private static boolean areAllCollinear(List<Point> points) {
 
-        if(points.size() < 2) {
-            return true;
-        }
-
         final Point a = points.get(0);
         final Point b = points.get(1);
 
-        for(int i = 2; i < points.size(); i++) {
+        for (int i = 2; i < points.size(); i++) {
 
             Point c = points.get(i);
 
-            if(getTurn(a, b, c) != Turn.COLLINEAR) {
+            if (getTurn(a, b, c) != Turn.COLLINEAR) {
                 return false;
             }
         }
@@ -31,11 +27,7 @@ public class GrahamScan {
 
         List<Point> sorted = new ArrayList<>(getSortedPointSet(points));
 
-        if(sorted.size() < 3) {
-            throw new IllegalArgumentException("can only create a convex hull of 3 or more unique points");
-        }
-
-        if(areAllCollinear(sorted)) {
+        if (areAllCollinear(sorted)) {
             throw new IllegalArgumentException("cannot create a convex hull from collinear points");
         }
 
@@ -51,7 +43,7 @@ public class GrahamScan {
 
             Turn turn = getTurn(tail, middle, head);
 
-            switch(turn) {
+            switch (turn) {
                 case COUNTER_CLOCKWISE:
                     stack.push(middle);
                     stack.push(head);
@@ -75,11 +67,11 @@ public class GrahamScan {
 
         Point lowest = points.get(0);
 
-        for(int i = 1; i < points.size(); i++) {
+        for (int i = 1; i < points.size(); i++) {
 
             Point temp = points.get(i);
 
-            if(temp.getY() < lowest.getY() || (temp.getY() == lowest.getY() && temp.getX() < lowest.getX())) {
+            if (temp.getY() < lowest.getY() || (temp.getY() == lowest.getY() && temp.getX() < lowest.getX())) {
                 lowest = temp;
             }
         }
@@ -95,33 +87,30 @@ public class GrahamScan {
             @Override
             public int compare(Point a, Point b) {
 
-                if(a == b || a.equals(b)) {
+                if (a == b || a.equals(b)) {
                     return 0;
                 }
 
                 // use longs to guard against int-underflow
-                double thetaA = Math.atan2((long)a.getY() - lowest.getY(), (long)a.getX() - lowest.getX());
-                double thetaB = Math.atan2((long)b.getY() - lowest.getY(), (long)b.getX() - lowest.getX());
+                double thetaA = Math.atan2((long) a.getY() - lowest.getY(), (long) a.getX() - lowest.getX());
+                double thetaB = Math.atan2((long) b.getY() - lowest.getY(), (long) b.getX() - lowest.getX());
 
-                if(thetaA < thetaB) {
+                if (thetaA < thetaB) {
                     return -1;
-                }
-                else if(thetaA > thetaB) {
+                } else if (thetaA > thetaB) {
                     return 1;
-                }
-                else {
+                } else {
                     // collinear with the 'lowest' point, let the point closest to it come first
 
                     // use longs to guard against int-over/underflow
-                    double distanceA = Math.sqrt((((long)lowest.getX() - a.getX()) * ((long)lowest.getX() - a.getX())) +
-                            (((long)lowest.getY() - a.getY()) * ((long)lowest.getY() - a.getY())));
-                    double distanceB = Math.sqrt((((long)lowest.getX() - b.getX()) * ((long)lowest.getX() - b.getX())) +
-                            (((long)lowest.getY() - b.getY()) * ((long)lowest.getY() - b.getY())));
+                    double distanceA = Math.sqrt((((long) lowest.getX() - a.getX()) * ((long) lowest.getX() - a.getX())) +
+                            (((long) lowest.getY() - a.getY()) * ((long) lowest.getY() - a.getY())));
+                    double distanceB = Math.sqrt((((long) lowest.getX() - b.getX()) * ((long) lowest.getX() - b.getX())) +
+                            (((long) lowest.getY() - b.getY()) * ((long) lowest.getY() - b.getY())));
 
-                    if(distanceA < distanceB) {
+                    if (distanceA < distanceB) {
                         return -1;
-                    }
-                    else {
+                    } else {
                         return 1;
                     }
                 }
@@ -135,17 +124,15 @@ public class GrahamScan {
 
     private static Turn getTurn(Point a, Point b, Point c) {
 
-        // use longs to guard against int-over/underflow
-        long crossProduct = (((long)b.getX() - a.getX()) * ((long)c.getY() - a.getY())) -
-                (((long)b.getY() - a.getY()) * ((long)c.getX() - a.getX()));
+        // longs used to guard against integer over/underflow
+        long crossProduct = (((long) b.getX() - a.getX()) * ((long) c.getY() - a.getY())) -
+                (((long) b.getY() - a.getY()) * ((long) c.getX() - a.getX()));
 
-        if(crossProduct > 0) {
+        if (crossProduct > 0) {
             return Turn.COUNTER_CLOCKWISE;
-        }
-        else if(crossProduct < 0) {
+        } else if (crossProduct < 0) {
             return Turn.CLOCKWISE;
-        }
-        else {
+        } else {
             return Turn.COLLINEAR;
         }
     }
