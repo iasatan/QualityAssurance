@@ -40,4 +40,9 @@ public class PointTest {
     public void toStringTest() {
         Assert.assertEquals(point.toString(), "5 4");
     }
+
+    @Test
+    public void hashCodeTest() {
+        Assert.assertEquals(point.hashCode(), 159);
+    }
 }
