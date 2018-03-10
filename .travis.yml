@@ -2,4 +2,4 @@ language: java
 jdk: oraclejdk8
 before_script: cd Sheep
 script: mvn clean install -DskipTests
-after_success: mvn test coveralls:report
+mvn test jacoco:report coveralls:report
