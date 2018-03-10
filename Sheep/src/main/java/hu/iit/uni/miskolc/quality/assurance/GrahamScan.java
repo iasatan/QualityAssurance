@@ -5,7 +5,7 @@ import hu.iit.uni.miskolc.quality.assurance.model.Turn;
 
 import java.util.*;
 
-public class GrahamScan {
+class GrahamScan {
     private static boolean areAllCollinear(List<Point> points) {
 
         final Point a = points.get(0);

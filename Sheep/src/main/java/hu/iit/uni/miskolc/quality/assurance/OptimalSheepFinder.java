@@ -4,12 +4,12 @@ import hu.iit.uni.miskolc.quality.assurance.model.Point;
 
 import java.util.List;
 
-public class OptimalSheepFinder {
+class OptimalSheepFinder {
 
     public static void main(String[] args) {
         List<Point> coordinates = Util.readCoordinatesFromFile("A/A9.in");
         List<Point> polygon;
-        // No need to coontinue if no coordinates found
+        // No need to continue if no coordinates found
         if (coordinates.isEmpty()) {
             System.out.println("no sheep found");
             return;

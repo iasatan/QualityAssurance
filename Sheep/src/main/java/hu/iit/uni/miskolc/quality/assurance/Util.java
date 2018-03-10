@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Util {
+class Util {
     public static Point pointWithLowestAngle(List<Point> polygon) {
         Point bestPoint = polygon.get(0);
         double minAngle = Math.toDegrees(polygon.get(1).getAngle(polygon.get(0), polygon.get(2)));
@@ -30,9 +30,10 @@ public class Util {
             String[] temp;
             for (int i = 1; i <= count; i++) {
                 temp = br.readLine().split(" ");
-                coordinates.add(new Point(i, Integer.parseInt(temp[0]), Integer.parseInt(temp[1])));
+                coordinates.add(new Point(Integer.parseInt(temp[0]), Integer.parseInt(temp[1])));
             }
         } catch (Exception e) {
+            System.out.println("something went wrong with reading the file");
         }
         return coordinates;
     }
