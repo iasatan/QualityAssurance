@@ -63,11 +63,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <excludes>
-                        <exclude>**/interpreter/*</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
