@@ -1,4 +1,0 @@
-\select@language {magyar} \beamer@sectionintoc {1}{Bevezet\IeC {\H o}}{2}{0}{1}
-\select@language {magyar} \beamer@sectionintoc {2}{Fejleszt\IeC {\'e}si nyelvek}{8}{0}{2}
-\select@language {magyar} \beamer@sectionintoc {3}{Androidra fejleszt\IeC {\'e}s}{12}{0}{3}
-\select@language {magyar} \beamer@sectionintoc {4}{Android tesztel\IeC {\'e}s}{25}{0}{4}
