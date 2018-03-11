@@ -5,31 +5,25 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UtilTest {
+public class GrahamScanTest {
     List<Point> points;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         points = new ArrayList<>();
         points.add(new Point(0, 1));
         points.add(new Point(1, 2));
         points.add(new Point(5, 12));
         points.add(new Point(78, 23));
         points.add(new Point(54, 12));
-        points.add(new Point(0, 1));
     }
 
     @Test
-    public void pointWithLowestAngle() {
-        Assert.assertNotNull(Util.pointWithLowestAngle(points));
-        Assert.assertEquals(new Point(78, 23), Util.pointWithLowestAngle(points));
-    }
-
-    @Test
-    public void readCoordinatesFromFile() throws IOException {
+    public void getConvexHull() {
+        Assert.assertNotNull(GrahamScan.getConvexHull(points));
+        Assert.assertEquals(GrahamScan.getConvexHull(points).toString(), "[0 1, 54 12, 78 23, 5 12, 0 1]");
     }
 }
