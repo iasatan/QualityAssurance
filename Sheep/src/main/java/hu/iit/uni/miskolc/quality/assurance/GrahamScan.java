@@ -54,6 +54,9 @@ class GrahamScan {
                 case COLLINEAR:
                     stack.push(head);
                     break;
+                default:
+                    break;
+
             }
         }
 
@@ -87,7 +90,7 @@ class GrahamScan {
             @Override
             public int compare(Point a, Point b) {
 
-                if (a == b || a.equals(b)) {
+                if (a.equals(b)) {
                     return 0;
                 }
 

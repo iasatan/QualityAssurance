@@ -5,9 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PointTest {
-    Point point;
-    Point pointLeft;
-    Point pointRight;
+    private Point point;
+    private Point pointLeft;
+    private Point pointRight;
 
     @Before
     public void setUp() throws Exception {

@@ -5,12 +5,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UtilTest {
-    List<Point> points;
+    private List<Point> points;
 
     @Before
     public void setUp() {
@@ -27,9 +26,5 @@ public class UtilTest {
     public void pointWithLowestAngle() {
         Assert.assertNotNull(Util.pointWithLowestAngle(points));
         Assert.assertEquals(new Point(78, 23), Util.pointWithLowestAngle(points));
-    }
-
-    @Test
-    public void readCoordinatesFromFile() throws IOException {
     }
 }

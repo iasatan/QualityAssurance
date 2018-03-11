@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GrahamScanTest {
-    List<Point> points;
+    private List<Point> points;
 
     @Before
     public void setUp() throws Exception {
