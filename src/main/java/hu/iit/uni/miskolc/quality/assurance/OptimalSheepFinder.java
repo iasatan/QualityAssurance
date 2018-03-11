@@ -9,13 +9,8 @@ import java.util.List;
 class OptimalSheepFinder {
 
     public static void main(String[] args) throws IOException, NoPointsException {
-        List<Point> coordinates = Util.readCoordinatesFromFile("A/A9.in");
+        List<Point> coordinates = Util.readCoordinatesFromFile("src/main/resources/A/A9.in");
         List<Point> polygon;
-        // If there are less than 3 points, doesn't matter which we choose
-        if (coordinates.size() < 3) {
-            System.out.println(coordinates.get(0));
-            return;
-        }
 
         polygon = GrahamScan.getConvexHull(coordinates);
 
