@@ -10,21 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Util {
-    public static Point pointWithLowestAngle(List<Point> polygon) {
-        Point bestPoint = polygon.get(0);
-        double minAngle = Math.toDegrees(polygon.get(1).getAngle(polygon.get(0), polygon.get(2)));
-        double tempAngle;
-        for (int i = 2; i < polygon.size() - 1; i++) {
-            tempAngle = Math.toDegrees(polygon.get(i).getAngle(polygon.get(i - 1), polygon.get(i + 1)));
-            if (tempAngle < minAngle) {
-                minAngle = tempAngle;
-                bestPoint = polygon.get(i);
-            }
-        }
-        return bestPoint;
-    }
 
-    public static List<Point> readCoordinatesFromFile(String filename) throws IOException, NoPointsException {
+    /**
+     * Reads the given file, and returns the list of points in that file
+     * @param filename name of the file, or path to the file
+     * @return List of points
+     * @throws IOException when no file found
+     * @throws NoPointsException when the file had no points
+     */
+    static List<Point> readCoordinatesFromFile(String filename) throws IOException, NoPointsException {
         List<Point> coordinates = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filename));
         Integer count = Integer.parseInt(br.readLine());
@@ -38,4 +32,6 @@ class Util {
         }
         return coordinates;
     }
+
+
 }

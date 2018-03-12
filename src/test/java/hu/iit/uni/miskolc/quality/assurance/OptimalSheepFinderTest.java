@@ -1,16 +1,45 @@
 package hu.iit.uni.miskolc.quality.assurance;
 
+import hu.iit.uni.miskolc.quality.assurance.model.Point;
 import hu.iit.uni.miskolc.quality.assurance.model.exception.NoPointsException;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.List;
 
-import static org.junit.Assert.*;
 
 public class OptimalSheepFinderTest {
 
+    private List<Point> points;
+    private List<Point> polygon;
+
     @Test
-    public void main() throws IOException, NoPointsException {
-        OptimalSheepFinder.main(null);
+    public void A8BestSheep() throws IOException, NoPointsException {
+        points = Util.readCoordinatesFromFile("src/main/resources/A/A8.in");
+        polygon = GrahamScan.getConvexHull(points);
+
+        Point bestSheep = Point.pointWithLowestAngle(polygon);
+        System.out.println(bestSheep);
+        Assert.assertEquals(bestSheep, new Point(20, 15));
+    }
+
+    @Test
+    public void A9BestSheep() throws IOException, NoPointsException {
+        points = Util.readCoordinatesFromFile("src/main/resources/A/A9.in");
+        polygon = GrahamScan.getConvexHull(points);
+
+        Point bestSheep = Point.pointWithLowestAngle(polygon);
+        System.out.println(bestSheep);
+        Assert.assertEquals(bestSheep, new Point(6, 10000));
+    }
+    @Test
+    public void A10BestSheep() throws IOException, NoPointsException {
+        points = Util.readCoordinatesFromFile("src/main/resources/A/A10.in");
+        polygon = GrahamScan.getConvexHull(points);
+
+        Point bestSheep = Point.pointWithLowestAngle(polygon);
+        System.out.println(bestSheep);
+        Assert.assertEquals(bestSheep, new Point(9128, 2179));
     }
 }

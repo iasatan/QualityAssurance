@@ -23,7 +23,7 @@ class GrahamScan {
         return true;
     }
 
-    public static List<Point> getConvexHull(List<Point> points) throws IllegalArgumentException {
+    static List<Point> getConvexHull(List<Point> points) throws IllegalArgumentException {
 
         List<Point> sorted = new ArrayList<>(getSortedPointSet(points));
 

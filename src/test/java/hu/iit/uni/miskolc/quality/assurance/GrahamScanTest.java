@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GrahamScanTest {
     private List<Point> points;
-
+    private List<Point> collinearPoints;
     @Before
     public void setUp() throws Exception {
         points = new ArrayList<>();
@@ -19,11 +19,21 @@ public class GrahamScanTest {
         points.add(new Point(5, 12));
         points.add(new Point(78, 23));
         points.add(new Point(54, 12));
+
+        collinearPoints=new ArrayList<>();
+        collinearPoints.add(new Point(0,0));
+        collinearPoints.add(new Point(1,1));
+        collinearPoints.add(new Point(2,2));
     }
 
     @Test
     public void getConvexHull() {
         Assert.assertNotNull(GrahamScan.getConvexHull(points));
         Assert.assertEquals(GrahamScan.getConvexHull(points).toString(), "[0 1, 54 12, 78 23, 5 12, 0 1]");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getConvexHullWithCollinearPoints(){
+        GrahamScan.getConvexHull(collinearPoints);
     }
 }
