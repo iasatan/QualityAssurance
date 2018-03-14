@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Util {
+public class Util {
 
     /**
      * Reads the given file, and returns the list of points in that file
@@ -18,7 +18,7 @@ class Util {
      * @throws IOException when no file found
      * @throws NoPointsException when the file had no points
      */
-    static List<Point> readCoordinatesFromFile(String filename) throws IOException, NoPointsException {
+    public static List<Point> readCoordinatesFromFile(String filename) throws IOException, NoPointsException {
         List<Point> coordinates = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(filename));
         Integer count = Integer.parseInt(br.readLine());

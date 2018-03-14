@@ -1,6 +1,7 @@
 package hu.iit.uni.miskolc.quality.assurance;
 
 import hu.iit.uni.miskolc.quality.assurance.model.Point;
+import hu.iit.uni.miskolc.quality.assurance.model.exception.CollinearPointsException;
 import hu.iit.uni.miskolc.quality.assurance.model.exception.NoPointsException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,7 +16,7 @@ public class OptimalSheepFinderTest {
     private List<Point> polygon;
 
     @Test
-    public void A8BestSheep() throws IOException, NoPointsException {
+    public void a8BestSheep() throws IOException, NoPointsException, CollinearPointsException {
         points = Util.readCoordinatesFromFile("src/main/resources/A/A8.in");
         polygon = GrahamScan.getConvexHull(points);
 
@@ -25,7 +26,7 @@ public class OptimalSheepFinderTest {
     }
 
     @Test
-    public void A9BestSheep() throws IOException, NoPointsException {
+    public void a9BestSheep() throws IOException, NoPointsException, CollinearPointsException {
         points = Util.readCoordinatesFromFile("src/main/resources/A/A9.in");
         polygon = GrahamScan.getConvexHull(points);
 
@@ -34,7 +35,7 @@ public class OptimalSheepFinderTest {
         Assert.assertEquals(bestSheep, new Point(6, 10000));
     }
     @Test
-    public void A10BestSheep() throws IOException, NoPointsException {
+    public void a10BestSheep() throws IOException, NoPointsException, CollinearPointsException {
         points = Util.readCoordinatesFromFile("src/main/resources/A/A10.in");
         polygon = GrahamScan.getConvexHull(points);
 

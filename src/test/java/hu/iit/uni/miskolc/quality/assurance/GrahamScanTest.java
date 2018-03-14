@@ -1,6 +1,7 @@
 package hu.iit.uni.miskolc.quality.assurance;
 
 import hu.iit.uni.miskolc.quality.assurance.model.Point;
+import hu.iit.uni.miskolc.quality.assurance.model.exception.CollinearPointsException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,13 +28,13 @@ public class GrahamScanTest {
     }
 
     @Test
-    public void getConvexHull() {
+    public void getConvexHull() throws CollinearPointsException {
         Assert.assertNotNull(GrahamScan.getConvexHull(points));
         Assert.assertEquals(GrahamScan.getConvexHull(points).toString(), "[0 1, 54 12, 78 23, 5 12, 0 1]");
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void getConvexHullWithCollinearPoints(){
+    @Test(expected = CollinearPointsException.class)
+    public void getConvexHullWithCollinearPoints() throws CollinearPointsException {
         GrahamScan.getConvexHull(collinearPoints);
     }
 }

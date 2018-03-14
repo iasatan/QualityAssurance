@@ -2,11 +2,17 @@ package hu.iit.uni.miskolc.quality.assurance;
 
 import hu.iit.uni.miskolc.quality.assurance.model.Point;
 import hu.iit.uni.miskolc.quality.assurance.model.Turn;
+import hu.iit.uni.miskolc.quality.assurance.model.exception.CollinearPointsException;
 
 import java.util.*;
 
 class GrahamScan {
-    private static boolean areAllCollinear(List<Point> points) {
+    /**
+     * returns true if all points are collinear
+     * @param points list of points
+     * @return
+     */
+    private static void areAllCollinear(List<Point> points) throws CollinearPointsException {
 
         final Point a = points.get(0);
         final Point b = points.get(1);
@@ -16,20 +22,27 @@ class GrahamScan {
             Point c = points.get(i);
 
             if (getTurn(a, b, c) != Turn.COLLINEAR) {
-                return false;
+                return;
             }
         }
 
-        return true;
+        throw new CollinearPointsException("All points are collinear");
     }
 
-    static List<Point> getConvexHull(List<Point> points) throws IllegalArgumentException {
+    /**
+     *  Returns the convex hull of the points created from the list
+     * points. Note that the first and last point in the
+     * returned List are the same
+     * point.
+     * @param points list of points
+     * @return the convex hull of the points created from the point list
+     * @throws CollinearPointsException when all points are collinear
+     */
+    static List<Point> getConvexHull(List<Point> points) throws CollinearPointsException {
 
         List<Point> sorted = new ArrayList<>(getSortedPointSet(points));
 
-        if (areAllCollinear(sorted)) {
-            throw new IllegalArgumentException("cannot create a convex hull from collinear points");
-        }
+        areAllCollinear(sorted);
 
         Stack<Point> stack = new Stack<>();
         stack.push(sorted.get(0));
@@ -66,6 +79,14 @@ class GrahamScan {
         return new ArrayList<>(stack);
     }
 
+    /**
+     * Returns the points with the lowest y coordinate. In case more than 1 such
+     * point exists, the one with the lowest x coordinate is returned.
+     * @param points the list of points to return the lowest point from.
+     * @return the points with the lowest y coordinate. In case more than
+     *               1 such point exists, the one with the lowest x coordinate
+     *               is returned
+     */
     private static Point getLowestPoint(List<Point> points) {
 
         Point lowest = points.get(0);
@@ -82,6 +103,15 @@ class GrahamScan {
         return lowest;
     }
 
+    /**
+     * Returns a sorted set of points from the list >points.
+     * The set of points are sorted in increasing order of the angle they and the
+     * lowest point make with the x-axis.
+     * If tow (or more) points form the same angle towards the lowest point
+     * the one closest to the lowest point comes first.
+     * @param points the list of points to sort.
+     * @return a sorted set of points from the list points.
+     */
     private static Set<Point> getSortedPointSet(List<Point> points) {
 
         final Point lowest = getLowestPoint(points);
@@ -124,7 +154,24 @@ class GrahamScan {
 
         return set;
     }
-
+    /**
+     * Returns the GrahamScan#Turn formed by traversing through the
+     * ordered points a, b and c.
+     * More specifically, the cross product C between the
+     * 3 points (vectors) is calculated:
+     *
+     * (b.x-a.x * c.y-a.y) - (b.y-a.y * c.x-a.x)
+     *
+     * and if C is less than 0, the turn is CLOCKWISE, if
+     * C is more than 0, the turn is COUNTER_CLOCKWISE, else
+     * the three points are COLLINEAR.
+     *
+     * @param a the starting point.
+     * @param b the second point.
+     * @param c the end point.
+     * @return the GrahamScan#Turn formed by traversing through the
+     *         ordered points a, b and c.
+     */
     private static Turn getTurn(Point a, Point b, Point c) {
 
         // longs used to guard against integer over/underflow

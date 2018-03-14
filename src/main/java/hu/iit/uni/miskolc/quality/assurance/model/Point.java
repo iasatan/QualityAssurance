@@ -26,7 +26,7 @@ public class Point {
      * @param right point right to this point
      * @return angle in radian
      */
-    double getAngle(Point left, Point right) {
+    private double getAngle(Point left, Point right) {
         double leftAngle = Math.sqrt(Math.pow(x - left.x, 2) + Math.pow(y - left.y, 2));
         double rightAngle = Math.sqrt(Math.pow(x - right.x, 2) + Math.pow(y - right.y, 2));
         double angleLeftRight = Math.sqrt(Math.pow(right.x - left.x, 2) + Math.pow(right.y - left.y, 2));
@@ -56,7 +56,7 @@ public class Point {
         return result;
     }
     /**
-     * min algorithm for points
+     * min algorithm for points depending on their angles
      * @param polygon convex Point hull
      * @return the point with the smallest angle
      */
