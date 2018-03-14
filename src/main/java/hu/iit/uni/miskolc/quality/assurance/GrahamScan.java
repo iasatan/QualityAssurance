@@ -6,7 +6,7 @@ import hu.iit.uni.miskolc.quality.assurance.model.exception.CollinearPointsExcep
 
 import java.util.*;
 
-class GrahamScan {
+public class GrahamScan {
     /**
      * returns true if all points are collinear
      * @param points list of points
