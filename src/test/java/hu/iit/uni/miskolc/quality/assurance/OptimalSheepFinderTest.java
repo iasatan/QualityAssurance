@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -42,5 +43,17 @@ public class OptimalSheepFinderTest {
         Point bestSheep = Point.pointWithLowestAngle(polygon);
         System.out.println(bestSheep);
         Assert.assertEquals(bestSheep, new Point(9128, 2179));
+    }
+
+    @Test
+    public void exampleBestSheep() throws CollinearPointsException {
+        points = new ArrayList<>();
+        points.add(new Point(0,0));
+        points.add(new Point(1,1));
+        points.add(new Point(10,0));
+        polygon=GrahamScan.getConvexHull(points);
+        Point bestSheep = Point.pointWithLowestAngle(polygon);
+        System.out.println(bestSheep);
+        Assert.assertEquals(bestSheep, new Point(10,0));
     }
 }

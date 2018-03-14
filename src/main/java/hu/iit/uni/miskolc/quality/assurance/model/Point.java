@@ -61,10 +61,10 @@ public class Point {
      * @return the point with the smallest angle
      */
     public static Point pointWithLowestAngle(List<Point> polygon) {
-        Point bestPoint = polygon.get(0);
+        Point bestPoint = polygon.get(1);
         double minAngle = Math.toDegrees(polygon.get(1).getAngle(polygon.get(0), polygon.get(2)));
         double tempAngle;
-        for (int i = 1; i < polygon.size() - 1; i++) {
+        for (int i = 2; i < polygon.size() - 1; i++) {
             tempAngle = Math.toDegrees(polygon.get(i).getAngle(polygon.get(i - 1), polygon.get(i + 1)));
             if (tempAngle < minAngle) {
                 minAngle = tempAngle;
