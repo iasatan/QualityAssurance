@@ -38,7 +38,7 @@ public class GrahamScan {
      * @return the convex hull of the points created from the point list
      * @throws CollinearPointsException when all points are collinear
      */
-    static List<Point> getConvexHull(List<Point> points) throws CollinearPointsException {
+    public static List<Point> getConvexHull(List<Point> points) throws CollinearPointsException {
 
         List<Point> sorted = new ArrayList<>(getSortedPointSet(points));
 
